@@ -1,0 +1,145 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    
+</head>
+
+<body>
+
+    <!-- DROPDOWN -->
+    <ul id=" dash-dropdown" class="dropdown-content">
+        <li><a href="#!" class="grey-text">Lectures</a></li>
+        <li><a href="#!" class="grey-text">Status</a></li>
+    </ul>
+    <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+            <!-- <a href="#" class="brand-logo">
+            <img src="img/logo.svg" style="width: 180px; margin-top: 10px;">
+          </a> -->
+            <a class="brand-logo grey-text" href="#" id="project-header">School</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                </li>
+                
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-upload">Upload Video</a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a class="dropdown-trigger grey-text" href="#!" data-target="dash-dropdown">Dashboard<i
+                            class="material-icons right">arrow_drop_down</i></a>
+                </li>
+                <li class="logged-in" style="display: none;">
+                    <a href="#" class="grey-text" id="logout">Logout</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="right grey-text modal-trigger" data-target="modal-about">About</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-login">Login</a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-signup">Sign up</a>
+                </li>
+                </span>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container" id="error-block">
+        <h3>Unautherized request</h3>
+        <p>You are not authorized to use this webpage. To access the page please login first. If you don't have login credentials, plesae sign up</p>
+
+    </div>
+
+
+    <!-- SIGN UP MODAL -->
+  <div id="modal-signup" class="modal">
+    <div class="modal-content">
+      <h4>Sign up</h4><br />
+      <form id="signup-form">
+        <div class="input-field">
+          <input type="email" id="signup-email" required />
+          <label for="signup-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" id="signup-password" required />
+          <label for="signup-password">Choose password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Sign up</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- LOGIN MODAL -->
+  <div id="modal-login" class="modal">
+    <div class="modal-content">
+      <h4>Login</h4><br />
+      <form id="login-form" action="/login" method="POST">
+        <div class="input-field">
+          <input type="email" id="login-email" name="username" required />
+          <label for="login-email">Email address</label>
+        </div>
+        <div class="input-field">
+          <input type="password" name="password" id="login-password" required />
+          <label for="login-password">Your password</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ACCOUNT MODAL -->
+  <div id="modal-account" class="modal">
+    <div class="modal-content center-align">
+      <h4>Account details</h4><br />
+      <div class="account-details"></div>
+    </div>
+  </div>
+
+  <!-- CREATE GUIDE MODAL -->
+  <div id="modal-upload" class="modal">
+    <div class="modal-content">
+      <h4>Upload video</h4><br />
+      <form id="create-form">
+        <div class="input-field">
+          <input type="text" id="title" required>
+          <label for="title">Video Title</label>
+        </div>
+        <div class="input-field">
+          <textarea id="vid-desc" class="materialize-textarea" required></textarea>
+          <label for="vid-desc">Video Description</label>
+        </div>
+        <button class="btn yellow darken-2 z-depth-0">Upload</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ABOUT MODAL -->
+  <div id="modal-about" class="modal">
+    <div class="modal-content">
+      <h4>About</h4>
+      <div class="about">
+        This is our school's app for video learning
+      </div>
+    </div>
+  </div>
+
+    <!-- <script src="{{ url_for('static',filename='scripts/jquery-3.5.1.js') }}"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <script src="{{ url_for('static',filename='scripts/app.js') }}"></script>
+
+</body>
+
+</html>

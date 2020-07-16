@@ -1,0 +1,34 @@
+{
+    "5": {
+        "English": {
+            "Chapter 1": {
+                "link": "data/videoFile.mp4",
+                "description" : "This chapter covers basics of tenses"
+            },
+            "Chapter 2": "",
+            "Chapter 3": "",
+            "Chapter 4": "",
+            "Chapter 5": ""
+        },
+        "Mathematics": {
+            "Chapter 1": {
+                "link": "data/videoFile.mp4",
+                "description" : "This chapter covers pythagorus theorem"
+            },
+            "Chapter 2": "",
+            "Chapter 3": "",
+            "Chapter 4": "",
+            "Chapter 5": ""
+        },
+        "Science": {    
+            "Chapter 1": {
+                "link": "data/videoFile.mp4",
+                "description" : "This chapter covers human anatomy"
+            },
+            "Chapter 2": "",
+            "Chapter 3": "",
+            "Chapter 4": "",
+            "Chapter 5": ""
+        }
+    }
+}

@@ -1,0 +1,134 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/style.css') }}">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+
+    <style>
+        #video-player {
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- DROPDOWN -->
+    <ul id=" dash-dropdown" class="dropdown-content">
+        <li><a href="#!" class="grey-text">Lectures</a></li>
+        <li><a href="#!" class="grey-text">Status</a></li>
+    </ul>
+    <nav class="z-depth-0 grey lighten-4">
+        <div class="nav-wrapper container">
+            <a class="brand-logo grey-text" href="#" id="project-header">School</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-account">Account</a>
+                </li>
+
+                <li class="logged-in">
+                    <a href="#" class="grey-text modal-trigger" data-target="modal-upload">Upload Video</a>
+                </li>
+                <li class="logged-in">
+                    <a class="dropdown-trigger grey-text" href="#!" data-target="dash-dropdown">Dashboard<i
+                            class="material-icons right">arrow_drop_down</i></a>
+                </li>
+                <li class="logged-out">
+                    <a href="#" class="right grey-text modal-trigger" data-target="modal-about">About</a>
+                </li>
+                <li class="logged-in">
+                    <a href="/logout" class="grey-text" id="logout">Logout</a>
+                </li>
+                </span>
+            </ul>
+        </div>
+    </nav>
+    <!-- <div id='nav-placeholder'></div> -->
+
+
+
+    <div class="container" id="video-player">
+        <!-- <button class="btn yellow darken-2 z-depth-0" id="back">Back</button> -->
+        <a href="/dashboard" class="btn yellow darken-2 z-depth-0">Back</a>
+        <h3 id=subject-header>{{ data['subject'] }}</h3>
+        <h4 id="chapter-header">{{ data['chapter'] }}</h4>
+        <hr>
+        <div class="video-container">
+            <iframe id="player" width="853" height="480" src="{{ url_for('static', filename=data['link']) }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <p><b>Description:</b></p>
+        <p>{{ data['desc'] }}</p>
+    </div>
+
+
+
+
+
+    <!-- ACCOUNT MODAL -->
+    <div id="modal-account" class="modal">
+        <div class="modal-content center-align">
+            <h4>Account details</h4><br />
+            <div class="account-details"></div>
+        </div>
+    </div>
+
+    <!-- VIDEO UPLOAD MODAL -->
+    <div id="modal-upload" class="modal">
+        <div class="modal-content">
+            <h4>Upload video</h4><br />
+            <form id="create-form">
+                <div class="input-field">
+                    <input type="text" id="title" required>
+                    <label for="title">Video Title</label>
+                </div>
+                <div class="input-field">
+                    <textarea id="vid-desc" class="materialize-textarea" required></textarea>
+                    <label for="vid-desc">Video Description</label>
+                </div>
+                <button class="btn yellow darken-2 z-depth-0">Upload</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ABOUT MODAL -->
+    <div id="modal-about" class="modal">
+        <div class="modal-content">
+            <h4>About</h4>
+            <div class="about">
+                This is our school's app for video learning
+            </div>
+        </div>
+    </div>
+
+
+    <!-- <script src="{{ url_for('static',filename='scripts/jquery-3.5.1.js') }}"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <!-- 
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html", () => {
+                let n = document.querySelectorAll(".logged-in");
+                n.forEach(ele => {
+                    ele.style.display = 'block';
+                });
+                $('.dropdown-trigger').dropdown();
+                var modals = document.querySelectorAll('.modal');
+                M.Modal.init(modals);
+            });
+        })
+    </script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <script src="{{ url_for('static',filename='scripts/video.js') }}"></script>
+
+</body>
+
+</html>

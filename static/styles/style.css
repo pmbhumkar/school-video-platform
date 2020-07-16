@@ -1,0 +1,11 @@
+body {
+    background-color: #eeeeee;
+}
+
+#error-block {
+    text-align: center;
+    background-color: #616161;
+    color: white;
+}
+
+
